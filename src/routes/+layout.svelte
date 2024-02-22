@@ -1,9 +1,29 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
+	import { onMount, onDestroy } from 'svelte';
 	import '../app.css';
 
-	// Reactive statement to get the current path
+	// Reactive statement for page URL
 	$: currentPath = $page.url.pathname;
+
+	// Function to prevent overscrolling effect
+	function preventOverscroll(event: TouchEvent): void {
+		// Prevents window scroll when reaching the top or bottom
+		const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+		if (scrollTop + clientHeight >= scrollHeight - 1 || scrollTop <= 0) {
+			event.preventDefault();
+		}
+	}
+
+	// Add event listener on mount
+	onMount(() => {
+		window.addEventListener('touchmove', preventOverscroll, { passive: false });
+	});
+
+	// Remove event listener on destroy
+	onDestroy(() => {
+		window.removeEventListener('touchmove', preventOverscroll);
+	});
 </script>
 
 <!-- Header Section -->
