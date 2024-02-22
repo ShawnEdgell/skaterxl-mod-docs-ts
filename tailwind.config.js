@@ -12,6 +12,7 @@ export default {
         'custom-lime-green': '#d6f93d',
         'custom-purple': '#a77ef2',
       },
+      
     },
   },
   plugins: [],

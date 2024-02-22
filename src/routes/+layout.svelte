@@ -6,8 +6,9 @@
 	$: currentPath = $page.url.pathname;
 </script>
 
-<div class="min-h-screen bg-custom-black">
-	<header class="flex justify-center p-4 sticky w-full top-0 z-10">
+<!-- Header Section -->
+<div class="flex flex-col items-center min-h-screen bg-custom-black">
+	<header class="backdrop-blur-md text-sm flex justify-center sticky p-6 w-full top-0 z-10">
 		<nav class="flex gap-8">
 			<a href="/" class={currentPath === '/' ? 'text-custom-blue' : 'text-white'}>Home</a>
 			<a
@@ -29,7 +30,10 @@
 		</nav>
 	</header>
 
-	<div class="p-6 flex-grow flex flex-col items-center justify-center">
-		<slot />
+	<div class="flex max-w-4xl">
+		<!-- Main Content -->
+		<div class="p-6 flex flex-col items-center">
+			<slot />
+		</div>
 	</div>
 </div>
