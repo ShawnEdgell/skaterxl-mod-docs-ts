@@ -19,6 +19,9 @@ export default {
       spacing: {
         'custom-18': '4.5rem', // Custom spacing for top-18 or top-custom-18
       },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
     },
   },
   plugins: [],
