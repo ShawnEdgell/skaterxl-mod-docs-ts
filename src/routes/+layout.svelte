@@ -33,7 +33,7 @@
 			</nav>
 		</header>
 
-		<div class="flex flex-row">
+		<div class="flex flex-row items-start">
 			<!-- Left Sidebar -->
 			<div class="hidden md:block">
 				<div class="h-screen-minus-custom-18 w-64 bg-blue-200 sticky top-custom-18 text-center p-6">

@@ -25,3 +25,9 @@
 body {
 	@apply bg-custom-black;
 }
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
