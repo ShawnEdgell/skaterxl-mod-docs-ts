@@ -30,10 +30,12 @@
 		</nav>
 	</header>
 
-	<div class="flex max-w-4xl">
-		<!-- Main Content -->
-		<div class="p-6 flex flex-col items-center">
-			<slot />
+	<div>
+		<div class="flex max-w-4xl">
+			<!-- Main Content -->
+			<div class="p-6 flex flex-col items-center">
+				<slot />
+			</div>
 		</div>
 	</div>
 </div>
