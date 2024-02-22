@@ -3,7 +3,7 @@
 </script>
 
 <div class="min-h-screen">
-	<header class="bg-blue-300 flex justify-center p-4 fixed w-full top-0 z-10">
+	<header class="bg-blue-300 flex justify-center p-4 sticky w-full top-0 z-10">
 		<nav class="flex gap-8">
 			<a href="/">Home</a>
 			<a href="/gettingstarted">Getting Started</a>
@@ -13,7 +13,7 @@
 		</nav>
 	</header>
 
-	<div class="pt-24 px-6 flex-grow flex flex-col items-center justify-center">
+	<div class="px-6 py-16 flex-grow flex flex-col items-center justify-center">
 		<slot />
 	</div>
 </div>
