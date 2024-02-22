@@ -3,7 +3,6 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
-      // Define custom maxWidth
       maxWidth: {
         'custom-8xl': '88rem', 
       },
@@ -16,6 +15,9 @@ export default {
         'custom-light-gray': '#e3e2e9', 
         'custom-lime-green': '#d6f93d',
         'custom-purple': '#a77ef2',
+      },
+      spacing: {
+        'custom-18': '4.5rem', // Custom spacing for top-18 or top-custom-18
       },
     },
   },

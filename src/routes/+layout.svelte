@@ -8,7 +8,9 @@
 
 <div class="w-full flex justify-center">
 	<div class="max-w-custom-8xl">
-		<header class="backdrop-blur-md text-sm justify-end flex sticky py-6 top-0 z-10">
+		<header
+			class="border-red-500 border backdrop-blur-md text-sm justify-end flex sticky py-6 top-0 z-10"
+		>
 			<nav class="flex gap-8">
 				<a href="/" class={currentPath === '/' ? 'text-custom-blue' : 'text-white'}>Home</a>
 				<a
@@ -34,8 +36,7 @@
 		<div class="flex flex-row">
 			<!-- Left Sidebar -->
 			<div class="hidden md:block">
-				<div class="w-64 h-full bg-blue-200 text-center p-6 mx-auto">
-					<!-- Inner Left Sidebar Content -->
+				<div class="h-screen-minus-custom-18 w-64 bg-blue-200 sticky top-custom-18 text-center p-6">
 					Left Sidebar
 				</div>
 			</div>
@@ -46,12 +47,17 @@
 			</div>
 
 			<!-- Right Sidebar -->
-			<div class="hidden xl:block">
-				<div class="w-64 h-full bg-blue-200 text-center p-6 mx-auto">
-					<!-- Inner Left Sidebar Content -->
+			<div class="hidden lg:block">
+				<div class="h-screen-minus-custom-18 w-64 bg-blue-200 sticky top-custom-18 text-center p-6">
 					Right Sidebar
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<style>
+	.h-screen-minus-custom-18 {
+		height: calc(100vh - 4.5rem);
+	}
+</style>
