@@ -1,43 +1,23 @@
 @tailwind base;
 
 @layer base {
-	body {
-		@apply font-sans text-base leading-6 text-gray-700;
-	}
-
 	h1 {
-		@apply text-4xl font-bold leading-snug;
+		@apply text-4xl mb-6 font-black; /* Larger font size and increased margin-bottom for h1 */
 	}
-
 	h2 {
-		@apply text-3xl font-bold leading-snug;
+		@apply text-3xl mb-5 font-black; /* Larger font size and increased margin-bottom for h2 */
 	}
-
 	h3 {
-		@apply text-2xl font-bold leading-snug;
+		@apply text-2xl mb-4 font-black; /* Adjusted font size and margin-bottom for h3 */
 	}
-
 	a {
-		@apply text-blue-500 hover:text-blue-600 font-bold;
+		@apply text-blue-600 font-bold;
 	}
-
-	/* Add other styles for forms, buttons, etc. */
+	p {
+		@apply mb-4;
+	}
 }
 
 @tailwind components;
 
 @tailwind utilities;
-
-.container {
-	@apply px-4 py-8 mx-auto;
-}
-
-.container-lg {
-	@apply max-w-7xl;
-}
-
-.container-sm {
-	@apply max-w-md;
-}
-
-/* Add styles for other elements like code, blockquote, table, image, etc. */

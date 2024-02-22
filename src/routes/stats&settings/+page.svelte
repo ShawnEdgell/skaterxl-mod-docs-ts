@@ -1,6 +1,4 @@
-<h1>Home Header 1</h1>
-<h2>Home Header 2</h2>
-<h3>Home Header 3</h3>
+<h1>Stats & Settings</h1>
 <p>
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta id ligula eu ultricies. Nam
 	iaculis pretium sapien, sed tincidunt leo. Praesent a ante leo. Donec tristique massa tristique
