@@ -1,4 +1,6 @@
 <h1>Skater XL Mod Docs</h1>
+<h2>Skater XL Mod Docs</h2>
+<h3>Skater XL Mod Docs</h3>
 <p>
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta id ligula eu ultricies. Nam
 	iaculis pretium sapien, sed tincidunt leo. Praesent a ante leo. Donec tristique massa tristique

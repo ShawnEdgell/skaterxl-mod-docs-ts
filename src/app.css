@@ -2,13 +2,13 @@
 
 @layer base {
 	h1 {
-		@apply text-4xl md:text-6xl mb-4 font-bold text-custom-light-gray; /* Smaller on mobile, larger from md */
+		@apply text-4xl md:text-6xl mb-6 font-bold text-custom-light-gray; /* Smaller on mobile, larger from md */
 	}
 	h2 {
-		@apply text-3xl md:text-4xl mb-4 font-bold text-custom-light-gray; /* Smaller on mobile, larger from md */
+		@apply text-3xl md:text-4xl mb-6 font-bold text-custom-light-gray; /* Smaller on mobile, larger from md */
 	}
 	h3 {
-		@apply text-xl md:text-2xl mb-4 font-bold text-custom-light-gray; /* Smaller on mobile, larger from md */
+		@apply text-xl md:text-2xl mb-6 font-bold text-custom-light-gray; /* Smaller on mobile, larger from md */
 	}
 	a {
 		@apply text-blue-600 font-bold hover:underline;
