@@ -1,28 +1,40 @@
 @tailwind base;
 
 @layer base {
-	h1 {
-		@apply text-4xl md:text-6xl mb-6 font-bold text-custom-light-gray; /* Smaller on mobile, larger from md */
+	body {
+		@apply font-sans text-base leading-relaxed bg-custom-black text-white !important; /* Dark mode background and text color */
 	}
-	h2 {
-		@apply text-3xl md:text-4xl mb-6 font-bold text-custom-light-gray; /* Smaller on mobile, larger from md */
-	}
+
+	/* Heading Styles */
+	h1,
+	h2,
 	h3 {
-		@apply text-xl md:text-2xl mb-6 font-bold text-custom-light-gray; /* Smaller on mobile, larger from md */
+		@apply mb-4 mt-6 text-custom-light-gray; /* Add spacing above and below headings */
 	}
-	a {
-		@apply text-blue-600 font-bold hover:underline;
+
+	h1 {
+		@apply text-4xl sm:text-6xl font-bold text-custom-light-gray; /* Example style for h1 */
 	}
+
+	h2 {
+		@apply text-2xl sm:text-4xl font-semibold text-custom-light-gray; /* Example style for h2 */
+	}
+
+	h3 {
+		@apply text-xl sm:text-2xl font-medium text-custom-light-gray; /* Example style for h3 */
+	}
+
+	/* Paragraphs */
 	p {
-		@apply mb-4 leading-7 text-custom-light-gray;
+		@apply text-base mb-4; /* Add spacing between paragraphs */
 	}
 }
 
 @tailwind components;
 @tailwind utilities;
 
-body {
-	@apply bg-custom-black;
+html {
+	overscroll-behavior: none;
 }
 
 *,
