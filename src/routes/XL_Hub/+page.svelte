@@ -3,7 +3,7 @@
 </script>
 
 <article>
-	<h1 id="home">Home</h1>
+	<h1 id="introduction">XL Hub</h1>
 	<p>
 		Explore the various features of our application. This section details each feature, how to use
 		it, and how it can help you achieve your goals.

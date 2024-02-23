@@ -2,7 +2,7 @@
 
 @layer base {
 	body {
-		@apply font-sans text-base leading-relaxed bg-custom-black text-white !important; /* Dark mode background and text color */
+		@apply font-sans text-base leading-relaxed flex justify-center bg-custom-black text-white !important; /* Dark mode background and text color */
 	}
 
 	/* Heading Styles */
@@ -13,15 +13,15 @@
 	}
 
 	h1 {
-		@apply text-4xl sm:text-6xl font-bold text-custom-light-gray; /* Example style for h1 */
+		@apply text-4xl md:text-6xl font-bold text-custom-light-gray; /* Example style for h1 */
 	}
 
 	h2 {
-		@apply text-2xl sm:text-4xl font-semibold text-custom-light-gray; /* Example style for h2 */
+		@apply text-2xl md:text-4xl font-semibold text-custom-light-gray; /* Example style for h2 */
 	}
 
 	h3 {
-		@apply text-xl sm:text-2xl font-medium text-custom-light-gray; /* Example style for h3 */
+		@apply text-xl md:text-2xl font-medium text-custom-light-gray; /* Example style for h3 */
 	}
 
 	/* Paragraphs */
@@ -31,6 +31,24 @@
 }
 
 @tailwind components;
+
+@layer components {
+	/* Container with rounded corners and border */
+	.container-rounded {
+		@apply bg-gray-800 border border-gray-700 rounded-lg p-4; /* Example styles */
+	}
+
+	/* Image styles with rounded corners */
+	.image-rounded {
+		@apply rounded-lg shadow-lg; /* Shadow for a subtle depth effect */
+	}
+
+	/* Iframe embed styles with rounded corners */
+	.iframe-rounded {
+		@apply rounded-lg overflow-hidden; /* Prevent content from spilling out */
+	}
+}
+
 @tailwind utilities;
 
 html {
