@@ -1,12 +1,36 @@
-<script>
-	import { page } from '$app/stores';
-	import { writable } from 'svelte/store';
-	import '../app.css';
+<script lang="ts">
+    import { afterUpdate } from 'svelte';
+    import { page } from '$app/stores';
+    import { headers, clearHeaders } from '$lib/stores';
+    import { captureHeaders } from '$lib/actions';
+    import { writable } from 'svelte/store';
+    import '../app.css';
 
-	// Reactive statement to get the current path
-	$: currentPath = $page.url.pathname;
-	const menuOpen = writable(false);
+    const menuOpen = writable(false);
+
+    // Reactive statement for currentPath, using $page store
+    $: currentPath = $page.url.pathname;
+
+    // Clear headers on page navigation
+    $: {
+        clearHeaders();
+        // Ensure capturing headers after the page/store update
+        afterUpdate(() => {
+            captureHeaders(contentNode);
+        });
+    }
+
+    // Define the click handler function here
+    function toggleMenu() {
+        menuOpen.update((n) => !n);
+
+        function updateHeaders() {
+            // This function should trigger the logic to re-capture headers based on the current page
+            // It might involve directly calling captureHeaders again, or triggering an update in a way that the captureHeaders action picks up
+        }
+    }
 </script>
+
 
 <div class="w-full flex justify-center">
 	<div class="max-w-custom-8xl">
@@ -14,7 +38,7 @@
 			class="flex flex-col backdrop-blur-md text-sm justify-between md:justify-end sticky p-6 top-0 z-10"
 		>
 			<!-- Hamburger Icon for small screens -->
-			<button class="md:hidden text-white" on:click={() => menuOpen.update((n) => !n)}>
+			<button class="md:hidden text-white" on:click={toggleMenu}>
 				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path
 						stroke-linecap="round"
@@ -72,7 +96,7 @@
 			</div>
 
 			<!-- Main Content -->
-			<div class="md:p-12 p-6 flex flex-col">
+			<div use:captureHeaders class="md:p-12 p-6 flex flex-col">
 				<slot />
 			</div>
 
@@ -82,8 +106,14 @@
 					style="height: calc(100vh - 4.5rem);"
 					class="w-64 bg-blue-200 sticky top-custom-18 text-center p-6"
 				>
-					<!-- Inner Right Sidebar Content -->
-					On this page
+					<!-- Inner Right Sidebar Content, dynamically generated links -->
+					<aside>
+						<ul>
+							{#each $headers as { text, id }}
+								<li><a href={`#${id}`}>{text}</a></li>
+							{/each}
+						</ul>
+					</aside>
 				</div>
 			</div>
 		</div>
