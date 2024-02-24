@@ -9,7 +9,7 @@
 	h1,
 	h2,
 	h3 {
-		@apply mb-4 mt-6 text-custom-light-gray; /* Add spacing above and below headings */
+		@apply mb-8 mt-8 text-custom-light-gray; /* Add spacing above and below headings */
 	}
 
 	h1 {

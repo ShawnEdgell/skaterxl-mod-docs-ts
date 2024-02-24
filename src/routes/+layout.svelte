@@ -1,19 +1,19 @@
 <script lang="ts">
 	import { onMount, afterUpdate } from 'svelte';
 	import { goto } from '$app/navigation';
+	import { writable, derived } from 'svelte/store';
 	import { page } from '$app/stores';
 	import { headers, clearHeaders } from '$lib/stores';
 	import { captureHeaders } from '$lib/actions';
-	import { writable } from 'svelte/store';
 	import '../app.css';
 
-	// Define variables and stores
 	let contentNode: HTMLElement;
 	let activeCategory: string | null = null;
 	const menuOpen = writable(false);
-	let currentPath = $page.url.pathname;
 
-	// Example links data
+	const currentPath = derived(page, ($page) => $page.url.pathname);
+
+	//Links data
 	const links = [
 		{ text: 'Home', url: '/' },
 		{ text: 'Getting Started', url: '/Getting_Started' },
@@ -62,23 +62,26 @@
 		{ text: 'Multiplayer+', url: '/Public/Multiplayer+' }
 	];
 
-	// Function to set the active link based on the current page URL
-	function setActiveLinkFromUrl() {
+	// Reactive store to track active link
+	let activeLink = writable('');
+
+	onMount(() => {
+		setActiveLinkFromCurrentUrl();
+		captureHeaders(contentNode);
+		window.addEventListener('resize', closeMenu);
+	});
+
+	afterUpdate(() => {
+		captureHeaders(contentNode);
+	});
+
+	// Automatically clear headers on component update
+	$: clearHeaders();
+
+	function setActiveLinkFromCurrentUrl() {
 		const currentUrl = window.location.pathname;
 		activeLink.set(currentUrl);
 	}
-	// Call the setActiveLinkFromUrl function when the component mounts
-	onMount(() => {
-		setActiveLinkFromUrl();
-		captureHeaders(contentNode);
-		window.addEventListener('resize', () => closeMenu());
-	});
-
-	// Call the setActiveLinkFromUrl function after every update
-	afterUpdate(() => contentNode && captureHeaders(contentNode));
-
-	$: clearHeaders();
-	$: afterUpdate(() => contentNode && captureHeaders(contentNode));
 
 	function toggleMenu() {
 		menuOpen.update((n) => !n);
@@ -92,9 +95,6 @@
 		event.stopPropagation();
 	}
 
-	// Reactive store to track active link
-	let activeLink = writable('');
-
 	async function setActiveLink(event: MouseEvent, url: string) {
 		event.preventDefault();
 		activeLink.set(url);
@@ -103,11 +103,7 @@
 	}
 
 	function toggleCategory(category: string) {
-		if (activeCategory === category) {
-			activeCategory = null;
-		} else {
-			activeCategory = category;
-		}
+		activeCategory = activeCategory === category ? null : category;
 	}
 </script>
 
@@ -156,7 +152,7 @@
 	<div class="flex flex-row items-start w-100 overflow-x-">
 		<!-- LEFT Sidebar -->
 		<div
-			class="sticky top-custom-18 items-start hidden lg:block bg-gray-700 h-100 overflow-y-auto min-w-56 w-56 py-12 px-6"
+			class="sticky top-custom-18 items-start hidden md:block bg-gray-700 h-100 overflow-y-auto min-w-56 w-56 py-12 px-6"
 		>
 			<details open={activeCategory === 'alpha'}>
 				<summary on:click={() => toggleCategory('alpha')}>Alpha Mods</summary>
