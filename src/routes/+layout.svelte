@@ -145,36 +145,42 @@
 	<div class="flex flex-row items-start overflow-x-">
 		<!-- LEFT Sidebar -->
 		<div
-			class="sticky top-custom-18 hidden md:block bg-gray-700 overflow-y-auto min-w-56 w-56 py-16 px-6"
+			class="sticky top-custom-18 hidden md:block overflow-y-auto min-w-56 w-56 py-16 px-6"
 			style="height: calc(100vh - 4.5rem);"
 		>
 			<button
-				class="text-custom-blue hover:text-white pb-4"
+				class="text-custom-blue hover:text-white pb-2 {activeCategory === 'alpha'
+					? 'font-bold'
+					: ''}"
 				on:click={() => toggleCategory('alpha')}
 			>
 				Alpha Mods
 			</button>
-			<div class="{activeCategory === 'alpha' ? 'block' : 'hidden'} pl-4">
+			<div class={activeCategory === 'alpha' ? 'block' : 'hidden'}>
 				{#each alphaLinks as { text, url }}
 					<a
 						href={url}
-						class="block hover:text-custom-blue"
+						class="block p-2 hover:bg-custom-gray"
 						on:click={(event) => {
-							event.preventDefault();
 							setActiveLink(event, url);
 							closeMenu();
-						}}>{text}</a
+						}}
+						class:font-bold={$activeLink === url}
+						class:bg-custom-gray={$activeLink === url}>{text}</a
 					>
 				{/each}
 			</div>
-			<button class="text-custom-blue pb-4" on:click={() => toggleCategory('public')}>
+			<button
+				class="text-custom-blue hover:text-white py-2"
+				on:click={() => toggleCategory('public')}
+			>
 				Public Mods
 			</button>
-			<div class="{activeCategory === 'public' ? 'block' : 'hidden'} pl-4">
+			<div class={activeCategory === 'public' ? 'block' : 'hidden'}>
 				{#each publicLinks as { text, url }}
 					<a
 						href={url}
-						class="block hover:text-custom-blue"
+						class="block p-2 hover:bg-custom-gray"
 						on:click={(event) => {
 							event.preventDefault();
 							setActiveLink(event, url);
@@ -194,14 +200,19 @@
 
 		<!-- RIGHT Sidebar -->
 		<div
-			class="sticky scroll-mt-custom-18 top-custom-18 hidden xl:block bg-gray-700 overflow-y-auto min-w-56 w-56 py-16 px-6"
+			class="sticky scroll-mt-custom-18 top-custom-18 hidden xl:block overflow-y-auto min-w-56 w-56 py-16 px-6"
 			style="height: calc(100vh - 4.5rem);"
 		>
 			<aside>
+				<p class="font-bold">On this page</p>
 				<ul>
 					{#each $headers as { text, id }}
-						<li>
-							<a href={`#${id}`}>{text}</a>
+						<li class="p-0 m-0">
+							<a
+								href={`#${id}`}
+								class="flex text-custom-blue hover:text-white hover:bg-custom-gray py-2 px-4"
+								>{text}</a
+							>
 						</li>
 					{/each}
 				</ul>
