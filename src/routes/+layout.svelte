@@ -9,8 +9,8 @@
 
 	let contentNode: HTMLElement;
 	let activeCategory: string | null = null;
+	let activeLink = writable('');
 	const menuOpen = writable(false);
-
 	const currentPath = derived(page, ($page) => $page.url.pathname);
 
 	//Links data
@@ -61,9 +61,6 @@
 		{ text: 'XL Menu Mod', url: '/Public/XL_Menu_Mod' },
 		{ text: 'Multiplayer+', url: '/Public/Multiplayer+' }
 	];
-
-	// Reactive store to track active link
-	let activeLink = writable('');
 
 	onMount(() => {
 		setActiveLinkFromCurrentUrl();
@@ -149,39 +146,48 @@
 	</header>
 
 	<!-- Body Containers -->
-	<div class="flex flex-row items-start w-100 overflow-x-">
+	<div class="flex flex-row items-start overflow-x-">
 		<!-- LEFT Sidebar -->
 		<div
-			class="sticky top-custom-18 items-start hidden md:block bg-gray-700 h-100 overflow-y-auto min-w-56 w-56 py-12 px-6"
+			class="sticky top-custom-18 hidden md:block bg-gray-700 overflow-y-auto min-w-56 w-56 py-16 px-6"
+			style="height: calc(100vh - 4.5rem);"
 		>
-			<details open={activeCategory === 'alpha'}>
-				<summary on:click={() => toggleCategory('alpha')}>Alpha Mods</summary>
+			<button class="text-custom-blue pb-4" on:click={() => toggleCategory('alpha')}>
+				Alpha Mods
+			</button>
+			<div class="{activeCategory === 'alpha' ? 'block' : 'hidden'} pl-4">
 				{#each alphaLinks as { text, url }}
 					<a
 						href={url}
+						class="block text-custom-blue hover:text-white transition-colors duration-300"
 						on:click={(event) => {
+							event.preventDefault();
 							setActiveLink(event, url);
 							closeMenu();
 						}}>{text}</a
 					>
 				{/each}
-			</details>
-			<details open={activeCategory === 'public'}>
-				<summary on:click={() => toggleCategory('public')}>Public Mods</summary>
+			</div>
+			<button class="text-custom-blue pb-4" on:click={() => toggleCategory('public')}>
+				Public Mods
+			</button>
+			<div class="{activeCategory === 'public' ? 'block' : 'hidden'} pl-4">
 				{#each publicLinks as { text, url }}
 					<a
 						href={url}
+						class="block text-custom-blue hover:text-white transition-colors duration-300"
 						on:click={(event) => {
+							event.preventDefault();
 							setActiveLink(event, url);
 							closeMenu();
 						}}>{text}</a
 					>
 				{/each}
-			</details>
+			</div>
 		</div>
 
 		<!-- Content-->
-		<div class="flex-grow overflow-y-auto p-6">
+		<div class="flex-grow overflow-y-auto w-100 overflow-hidden p-6">
 			<div bind:this={contentNode}>
 				<slot />
 			</div>
@@ -189,7 +195,8 @@
 
 		<!-- RIGHT Sidebar -->
 		<div
-			class="sticky top-custom-18 hidden xl:block bg-gray-700 h-100 overflow-y-auto min-w-56 w-56 py-12 px-6"
+			class="sticky scroll-mt-custom-18 top-custom-18 hidden xl:block bg-gray-700 overflow-y-auto min-w-56 w-56 py-16 px-6"
+			style="height: calc(100vh - 4.5rem);"
 		>
 			<aside>
 				<ul>
