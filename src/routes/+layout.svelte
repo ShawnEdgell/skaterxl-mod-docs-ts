@@ -88,10 +88,6 @@
 		menuOpen.set(false);
 	}
 
-	function preventPropagation(event: MouseEvent) {
-		event.stopPropagation();
-	}
-
 	async function setActiveLink(event: MouseEvent, url: string) {
 		event.preventDefault();
 		activeLink.set(url);
@@ -152,14 +148,17 @@
 			class="sticky top-custom-18 hidden md:block bg-gray-700 overflow-y-auto min-w-56 w-56 py-16 px-6"
 			style="height: calc(100vh - 4.5rem);"
 		>
-			<button class="text-custom-blue pb-4" on:click={() => toggleCategory('alpha')}>
+			<button
+				class="text-custom-blue hover:text-white pb-4"
+				on:click={() => toggleCategory('alpha')}
+			>
 				Alpha Mods
 			</button>
 			<div class="{activeCategory === 'alpha' ? 'block' : 'hidden'} pl-4">
 				{#each alphaLinks as { text, url }}
 					<a
 						href={url}
-						class="block text-custom-blue hover:text-white transition-colors duration-300"
+						class="block hover:text-custom-blue"
 						on:click={(event) => {
 							event.preventDefault();
 							setActiveLink(event, url);
@@ -175,7 +174,7 @@
 				{#each publicLinks as { text, url }}
 					<a
 						href={url}
-						class="block text-custom-blue hover:text-white transition-colors duration-300"
+						class="block hover:text-custom-blue"
 						on:click={(event) => {
 							event.preventDefault();
 							setActiveLink(event, url);
@@ -202,7 +201,7 @@
 				<ul>
 					{#each $headers as { text, id }}
 						<li>
-							<a href={`#${id}`} on:click={preventPropagation}>{text}</a>
+							<a href={`#${id}`}>{text}</a>
 						</li>
 					{/each}
 				</ul>
