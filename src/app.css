@@ -86,26 +86,19 @@ html {
 	box-sizing: border-box;
 }
 
-/* For Webkit browsers like Chrome, Safari, and newer versions of Edge */
-::-webkit-scrollbar {
-	width: 8px; /* Thinner scrollbar width */
-}
-
 ::-webkit-scrollbar-track {
-	background: #151c24; /* custom-dark-blue for the track */
+	background: #2b2b2b;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #232323; /* custom-gray for the thumb */
-	border-radius: 4px; /* Slightly rounded corners for a modern look */
+	background: #555;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #343434; /* custom-soft-gray for the thumb on hover */
+	background: #6e6e6e;
 }
 
 /* For Firefox */
 * {
-	scrollbar-width: thin; /* Makes the scrollbar thinner */
-	scrollbar-color: #232323 #151c24; /* custom-gray for the thumb and custom-dark-blue for the track */
+	scrollbar-color: #555 #2b2b2b;
 }
