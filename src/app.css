@@ -56,11 +56,11 @@
 	}
 
 	.card {
-		@apply bg-custom-gray border-2 border-custom-black flex items-center justify-center text-center rounded-xl p-5;
+		@apply bg-custom-gray border-2 border-transparent flex items-center justify-center text-center rounded-xl p-5;
 	}
 
 	.card:hover {
-		@apply border-blue-500;
+		@apply border-custom-blue;
 	}
 
 	.section-container {
@@ -84,4 +84,28 @@ html {
 *::before,
 *::after {
 	box-sizing: border-box;
+}
+
+/* For Webkit browsers like Chrome, Safari, and newer versions of Edge */
+::-webkit-scrollbar {
+	width: 8px; /* Thinner scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+	background: #151c24; /* custom-dark-blue for the track */
+}
+
+::-webkit-scrollbar-thumb {
+	background: #232323; /* custom-gray for the thumb */
+	border-radius: 4px; /* Slightly rounded corners for a modern look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #343434; /* custom-soft-gray for the thumb on hover */
+}
+
+/* For Firefox */
+* {
+	scrollbar-width: thin; /* Makes the scrollbar thinner */
+	scrollbar-color: #232323 #151c24; /* custom-gray for the thumb and custom-dark-blue for the track */
 }
