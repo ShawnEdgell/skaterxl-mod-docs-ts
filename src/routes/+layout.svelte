@@ -147,7 +147,7 @@
 	<div class="flex flex-row items-start">
 		<!-- LEFT Sidebar -->
 		<div
-			class="sticky top-custom-18 hidden md:block overflow-y-auto min-w-64 w-64 py-16 px-6"
+			class="sticky top-custom-18 hidden md:block overflow-y-auto min-w-64 w-64 py-16 px-6 border-r-2 border-custom-gray"
 			style="height: calc(100vh - 4.5rem);"
 		>
 			<div class="md:flex-col">
