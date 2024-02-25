@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="gearutilitiesmod">Gear Utilities Mod</h1>
@@ -7,6 +11,7 @@
 			you to personalize your skater's look to your liking.
 		</p>
 	</div>
+	<Image src="/images/GearUtilities.webp" alt="Gear Utilities Mod" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

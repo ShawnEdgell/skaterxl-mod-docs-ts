@@ -1,5 +1,5 @@
 <script lang="ts">
-	// Script content for the XXL 3 Mod page, if needed
+	import Image from '$lib/Image.svelte';
 </script>
 
 <article>
@@ -11,6 +11,7 @@
 			flip speeds to your skating stance, ensuring a personalized skateboarding journey.
 		</p>
 	</div>
+	<Image src="/images/XXL3.webp" alt="XXL 3 Mod" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<p><strong>Author:</strong> DawgVinci</p>
@@ -56,7 +57,5 @@
 			foundational settings are crucial for personalizing gameplay. Adjustments should reflect your
 			unique play style, enhancing your interaction with Skater XL and the XXL 3 Mod.
 		</p>
-		<!-- Include General Settings and other categories as necessary -->
 	</div>
-	<!-- Repeat the section-container structure for additional content such as General Settings, Catch, Flips, etc. -->
 </article>

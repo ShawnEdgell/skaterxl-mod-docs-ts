@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<h1>Stats & Settings</h1>
 	<p>

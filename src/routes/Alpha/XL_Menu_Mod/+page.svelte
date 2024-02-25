@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="xlmenumod">XL Menu Mod</h1>
@@ -6,6 +10,7 @@
 			XL. It offers an intuitive and user-friendly interface to manage your content with ease.
 		</p>
 	</div>
+	<Image src="/images/XLMenuMod.webp" alt="XL Menu Mod" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

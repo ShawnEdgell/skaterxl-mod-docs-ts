@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="soundmod">Sound Mod</h1>
@@ -7,6 +11,7 @@
 			experience tailored to your preferences.
 		</p>
 	</div>
+	<Image src="/images/SoundMod.webp" alt="Sound Mod" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="notmyfeet">Not My Feet!</h1>
@@ -6,6 +10,7 @@
 			indicators, offering a more realistic and uncluttered gameplay interface.
 		</p>
 	</div>
+	<Image src="/images/NotMyFeet.webp" alt="Not My Feet" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="controllerrumble">Controller Rumble</h1>
@@ -6,6 +10,7 @@
 			feedback through your controller, enhancing the realism of the gameplay.
 		</p>
 	</div>
+	<Image src="/images/ControllerRumble.webp" alt="Controller Rumble" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

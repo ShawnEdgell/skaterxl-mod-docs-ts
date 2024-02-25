@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="betterobjectdroppermod">Better Object Dropper Mod</h1>
@@ -6,6 +10,7 @@
 			unparalleled flexibility in designing custom skate spots.
 		</p>
 	</div>
+	<Image src="/images/BetterObjectDropper.webp" alt="Better Object Dropper" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

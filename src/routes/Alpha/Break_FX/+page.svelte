@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="breakfxmod">Break FX Mod</h1>
@@ -7,6 +11,7 @@
 			of managing your board's durability during intense skate sessions.
 		</p>
 	</div>
+	<Image src="/images/BreakFX2.webp" alt="XXL 3 Mod" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="grindtools">Grind Tools Mod</h1>
@@ -6,6 +10,7 @@
 			like the Grind Spline Tool and the Wax Tool for a more dynamic skateboarding experience.
 		</p>
 	</div>
+	<Image src="/images/GrindTools.webp" alt="Grind Tools" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="xlrandommapmod">XL Random Map Mod</h1>
@@ -6,6 +10,7 @@
 			exciting skateboarding experience every time.
 		</p>
 	</div>
+	<Image src="/images/XLRandomMap.webp" alt="XL Random Map" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

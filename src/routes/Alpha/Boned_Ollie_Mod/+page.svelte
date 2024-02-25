@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="bonedolliemod">Boned Ollie Mod</h1>
@@ -7,6 +11,7 @@
 			movement for a unique style.
 		</p>
 	</div>
+	<Image src="/images/BonedOllieMod.webp" alt="Boned Ollie Mod" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

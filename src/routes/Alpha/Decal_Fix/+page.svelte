@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="decalfixmod">Decal Fix</h1>
@@ -6,6 +10,7 @@
 			screen space reflections, adding depth and realism to the game's environments.
 		</p>
 	</div>
+	<Image src="/images/DecalFix.webp" alt="Decal Fix" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

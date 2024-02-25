@@ -29,10 +29,6 @@
 	ol {
 		@apply text-base mb-4 text-custom-light-gray;
 	}
-
-	img {
-		@apply rounded-lg;
-	}
 }
 
 @tailwind components;
@@ -60,7 +56,7 @@
 	}
 
 	.card:hover {
-		@apply border-custom-blue;
+		@apply sm:border-custom-blue;
 	}
 
 	.section-container {
@@ -69,6 +65,10 @@
 
 	.section-container > p > a {
 		@apply text-custom-blue underline hover:no-underline;
+	}
+
+	.note {
+		@apply bg-custom-light-gray border-l-4 border-custom-purple;
 	}
 }
 

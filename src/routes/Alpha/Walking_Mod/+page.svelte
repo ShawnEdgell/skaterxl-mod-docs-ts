@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="walkingmod">Walking Mod</h1>
@@ -7,6 +11,7 @@
 			and immersion.
 		</p>
 	</div>
+	<Image src="/images/WalkingMod.webp" alt="Walking Mod" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

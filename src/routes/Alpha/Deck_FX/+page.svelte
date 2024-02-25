@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="deckfx">Deck FX</h1>
@@ -6,6 +10,7 @@
 			offering a tailored skateboarding experience in Skater XL.
 		</p>
 	</div>
+	<Image src="/images/DeckFX.webp" alt="Deck FX" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, afterUpdate } from 'svelte';
+	import { slide } from 'svelte/transition';
 	import { goto } from '$app/navigation';
 	import { writable, derived } from 'svelte/store';
 	import { page } from '$app/stores';
@@ -67,14 +68,13 @@
 		window.addEventListener('resize', () => menuOpen.set(false));
 	});
 
-	// Derived store to automatically open the relevant category based on the current URL
 	$: currentPath.subscribe(($currentPath) => {
 		if ($currentPath.startsWith('/Alpha')) {
 			activeCategory.set('alpha');
 		} else if ($currentPath.startsWith('/Public')) {
 			activeCategory.set('public');
 		} else {
-			activeCategory.set(null); // Or keep the last opened category if preferred
+			activeCategory.set(null);
 		}
 	});
 
@@ -106,7 +106,7 @@
 <div class="max-w-custom-8xl">
 	<!-- Header Section -->
 	<header
-		class="w-100 sticky top-0 z-100 py-4 px-8 backdrop-blur-md flex flex-col md:flex-row text-sm"
+		class="w-full sticky top-0 z-50 py-4 px-6 backdrop-blur-md flex flex-col md:flex-row text-sm"
 	>
 		<div class="flex justify-between items-center w-full md:w-auto md:mb-0">
 			<a href="/" title="Go to homepage">
@@ -124,15 +124,16 @@
 			</button>
 		</div>
 		<nav
-			class="{$menuOpen
-				? 'flex justify-center'
-				: 'hidden'} md:flex flex-col md:flex-row justify-end flex-grow"
+			class="md:flex flex-col md:flex-row justify-end flex-grow
+            {($menuOpen ? 'flex justify-center ' : 'hidden') + ' md:flex'}"
+			in:slide={{ duration: 400 }}
+			out:slide={{ duration: 400 }}
 		>
 			{#each links as { text, url }}
 				<a
 					href={url}
 					on:click|preventDefault={(event) => navigate(event, url)}
-					class="text-center text-lg md:text-sm hover:underline px-4 py-2 {$activeLink === url
+					class="text-center text-lg md:text-sm md:hover:underline md:pl-8 py-2 {$activeLink === url
 						? 'text-custom-blue'
 						: 'text-white'}"
 				>
@@ -146,55 +147,62 @@
 	<div class="flex flex-row items-start">
 		<!-- LEFT Sidebar -->
 		<div
-			class="sticky top-custom-18 hidden md:block overflow-y-auto min-w-56 w-56 py-16 px-6"
+			class="sticky top-custom-18 hidden md:block overflow-y-auto min-w-64 w-64 py-16 px-6"
 			style="height: calc(100vh - 4.5rem);"
 		>
-			<button
-				class="text-custom-blue hover:text-white pb-2 {$activeCategory === 'alpha'
-					? 'font-bold'
-					: ''}"
-				on:click={() => toggleCategory('alpha')}
-			>
-				Alpha Mods
-			</button>
-			<div class={$activeCategory === 'alpha' ? 'block' : 'hidden'}>
-				{#each alphaLinks as { text, url }}
-					<a
-						href={url}
-						on:click|preventDefault={(event) => navigate(event, url)}
-						class="block p-2 hover:bg-custom-gray {$activeLink === url
-							? 'font-bold bg-custom-soft-gray hover:bg-custom-soft-gray'
-							: ''}"
-					>
-						{text}
-					</a>
-				{/each}
+			<div class="md:flex-col">
+				<!-- Added container for stacking -->
+				<button
+					class="text-custom-blue hover:text-white pb-2 {$activeCategory === 'alpha'
+						? 'font-bold'
+						: ''}"
+					on:click={() => toggleCategory('alpha')}
+				>
+					Alpha Mods
+				</button>
+				<div class={$activeCategory === 'alpha' ? 'block' : 'hidden'}>
+					{#each alphaLinks as { text, url }}
+						<a
+							href={url}
+							on:click|preventDefault={(event) => navigate(event, url)}
+							class="block p-2 hover:bg-custom-gray {$activeLink === url
+								? 'font-bold bg-custom-soft-gray hover:bg-custom-soft-gray'
+								: ''}"
+						>
+							{text}
+						</a>
+					{/each}
+				</div>
 			</div>
-			<button
-				class="text-custom-blue hover:text-white py-2 {$activeCategory === 'public'
-					? 'font-bold'
-					: ''}"
-				on:click={() => toggleCategory('public')}
-			>
-				Public Mods
-			</button>
-			<div class={$activeCategory === 'public' ? 'block' : 'hidden'}>
-				{#each publicLinks as { text, url }}
-					<a
-						href={url}
-						on:click|preventDefault={(event) => navigate(event, url)}
-						class="block p-2 hover:bg-custom-gray {$activeLink === url
-							? 'font-bold bg-custom-soft-gray hover:bg-custom-soft-gray'
-							: ''}"
-					>
-						{text}
-					</a>
-				{/each}
+
+			<div class="md:flex-col">
+				<!-- Added container for stacking -->
+				<button
+					class="text-custom-blue hover:text-white py-2 {$activeCategory === 'public'
+						? 'font-bold'
+						: ''}"
+					on:click={() => toggleCategory('public')}
+				>
+					Public Mods
+				</button>
+				<div class={$activeCategory === 'public' ? 'block' : 'hidden'}>
+					{#each publicLinks as { text, url }}
+						<a
+							href={url}
+							on:click|preventDefault={(event) => navigate(event, url)}
+							class="block p-2 hover:bg-custom-gray {$activeLink === url
+								? 'font-bold bg-custom-soft-gray hover:bg-custom-soft-gray'
+								: ''}"
+						>
+							{text}
+						</a>
+					{/each}
+				</div>
 			</div>
 		</div>
 
 		<!-- Content-->
-		<div class="flex-grow overflow-y-auto w-full p-6">
+		<div class="flex-grow overflow-y-auto w-full p-6 md:px-12">
 			<div bind:this={contentNode}>
 				<slot />
 			</div>
@@ -202,7 +210,7 @@
 
 		<!-- RIGHT Sidebar -->
 		<div
-			class="sticky scroll-mt-custom-18 top-custom-18 hidden xl:block overflow-y-auto min-w-56 w-56 py-16 px-6"
+			class="sticky scroll-mt-custom-18 top-custom-18 hidden lg:block overflow-y-auto min-w-64 w-64 py-16 px-6"
 			style="height: calc(100vh - 4.5rem);"
 		>
 			<aside>

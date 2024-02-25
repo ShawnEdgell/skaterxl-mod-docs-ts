@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="shapefx">Shape FX Mod</h1>
@@ -7,6 +11,7 @@
 			experience, giving you the freedom to adjust the deck shape to match your style or preference.
 		</p>
 	</div>
+	<Image src="/images/ShapeFX.webp" alt="Shape FX" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

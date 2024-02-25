@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="grabcustomizermod">Grab Customizer Mod</h1>
@@ -6,6 +10,7 @@
 			customization to reflect your unique skateboarding style.
 		</p>
 	</div>
+	<Image src="/images/GrabCustomizer.webp" alt="Grab Customizer" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

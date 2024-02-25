@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="xlgraphics">XL Graphics Mod</h1>
@@ -7,6 +11,7 @@
 			cinematic skate videos.
 		</p>
 	</div>
+	<Image src="/images/XLGraphics.webp" alt="XL Graphics" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

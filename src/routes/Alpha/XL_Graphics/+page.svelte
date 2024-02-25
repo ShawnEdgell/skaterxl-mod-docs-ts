@@ -1,5 +1,5 @@
 <script lang="ts">
-	// Script content for the XL Graphics Mod page, if needed
+	import Image from '$lib/Image.svelte';
 </script>
 
 <article>
@@ -10,6 +10,7 @@
 			into a visually captivating skateboarding adventure. Gain unparalleled control over camera
 			settings for crafting dynamic, cinematic skate videos.
 		</p>
+		<Image src="/images/XLGraphics.webp" alt="XL Graphics" />
 	</div>
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>

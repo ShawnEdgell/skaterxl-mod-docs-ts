@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="xlgearmodifier">XL Gear Modifier (XLGM 2)</h1>
@@ -6,6 +10,7 @@
 			Skater XL, enhancing your character's appearance with personalized style and accessories.
 		</p>
 	</div>
+	<Image src="/images/XLGM.webp" alt="XL Gear Mod" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

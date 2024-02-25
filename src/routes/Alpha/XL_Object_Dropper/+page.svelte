@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="xlobjectdroppermod">XL Object Dropper Mod</h1>
@@ -7,6 +11,7 @@
 		</p>
 	</div>
 	<div class="section-container">
+		<Image src="/images/XLObjectDropper.webp" alt="XL Object Dropper" />
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>
 			<li><strong>Authors:</strong> mcbtay, SqueegeeDinoToy</li>

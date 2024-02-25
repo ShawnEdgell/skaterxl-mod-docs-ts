@@ -1,3 +1,7 @@
+<script lang="ts">
+	import Image from '$lib/Image.svelte';
+</script>
+
 <article>
 	<div class="section-container">
 		<h1 id="lateflipmod">Lateflip Mod</h1>
@@ -6,6 +10,7 @@
 			for more realistic and precise skateboarding maneuvers.
 		</p>
 	</div>
+	<Image src="/images/LateflipMod.webp" alt="XXL 3 Mod" />
 	<div class="section-container">
 		<h2 id="modinfo">Mod Information</h2>
 		<ul>

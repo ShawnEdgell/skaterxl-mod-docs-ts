@@ -1,5 +1,5 @@
 <script lang="ts">
-	// Script content for the Getting Started page, if needed
+	import Image from '$lib/Image.svelte';
 </script>
 
 <article>
