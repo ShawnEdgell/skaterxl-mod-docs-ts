@@ -3,7 +3,7 @@
 </script>
 
 <article>
-	<h1 id="introduction">Maps & Gear</h1>
+	<h1 id="introduction">Stats & Settings</h1>
 	<p>
 		Explore the various features of our application. This section details each feature, how to use
 		it, and how it can help you achieve your goals.
@@ -11,6 +11,9 @@
 
 	<h3 id="feature1">Feature 1</h3>
 	<p>Details about Feature 1.</p>
+
+	<h3 id="feature2">Feature 2</h3>
+	<p>Details about Feature 2.</p>
 
 	<h2 id="faq">FAQ</h2>
 	<p>

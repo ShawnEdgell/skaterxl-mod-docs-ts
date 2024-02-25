@@ -8,10 +8,10 @@
 	import '../app.css';
 
 	let contentNode: HTMLElement;
-	let activeCategory: string | null = null;
-	let activeLink = writable('');
 	const menuOpen = writable(false);
 	const currentPath = derived(page, ($page) => $page.url.pathname);
+	const activeLink = derived([currentPath], ([$currentPath]) => $currentPath);
+	const activeCategory = writable<string | null>(null);
 
 	//Links data
 	const links = [
@@ -63,22 +63,26 @@
 	];
 
 	onMount(() => {
-		setActiveLinkFromCurrentUrl();
 		captureHeaders(contentNode);
-		window.addEventListener('resize', closeMenu);
+		window.addEventListener('resize', () => menuOpen.set(false));
+	});
+
+	// Derived store to automatically open the relevant category based on the current URL
+	$: currentPath.subscribe(($currentPath) => {
+		if ($currentPath.startsWith('/Alpha')) {
+			activeCategory.set('alpha');
+		} else if ($currentPath.startsWith('/Public')) {
+			activeCategory.set('public');
+		} else {
+			activeCategory.set(null); // Or keep the last opened category if preferred
+		}
 	});
 
 	afterUpdate(() => {
 		captureHeaders(contentNode);
 	});
 
-	// Automatically clear headers on component update
 	$: clearHeaders();
-
-	function setActiveLinkFromCurrentUrl() {
-		const currentUrl = window.location.pathname;
-		activeLink.set(currentUrl);
-	}
 
 	function toggleMenu() {
 		menuOpen.update((n) => !n);
@@ -88,15 +92,13 @@
 		menuOpen.set(false);
 	}
 
-	async function setActiveLink(event: MouseEvent, url: string) {
+	async function navigate(event: MouseEvent, url: string) {
 		event.preventDefault();
-		activeLink.set(url);
-		closeMenu();
 		await goto(url);
 	}
 
 	function toggleCategory(category: string) {
-		activeCategory = activeCategory === category ? null : category;
+		activeCategory.update((current) => (current === category ? null : category));
 	}
 </script>
 
@@ -129,70 +131,70 @@
 			{#each links as { text, url }}
 				<a
 					href={url}
-					on:click={(event) => {
-						setActiveLink(event, url);
-						closeMenu();
-					}}
-					class="text-center text-lg md:text-sm hover:underline px-4 py-2"
-					class:text-custom-blue={$activeLink === url}
-					class:text-white={$activeLink !== url}>{text}</a
+					on:click|preventDefault={(event) => navigate(event, url)}
+					class="text-center text-lg md:text-sm hover:underline px-4 py-2 {$activeLink === url
+						? 'text-custom-blue'
+						: 'text-white'}"
 				>
+					{text}
+				</a>
 			{/each}
 		</nav>
 	</header>
 
 	<!-- Body Containers -->
-	<div class="flex flex-row items-start overflow-x-">
+	<div class="flex flex-row items-start">
 		<!-- LEFT Sidebar -->
 		<div
 			class="sticky top-custom-18 hidden md:block overflow-y-auto min-w-56 w-56 py-16 px-6"
 			style="height: calc(100vh - 4.5rem);"
 		>
 			<button
-				class="text-custom-blue hover:text-white pb-2 {activeCategory === 'alpha'
+				class="text-custom-blue hover:text-white pb-2 {$activeCategory === 'alpha'
 					? 'font-bold'
 					: ''}"
 				on:click={() => toggleCategory('alpha')}
 			>
 				Alpha Mods
 			</button>
-			<div class={activeCategory === 'alpha' ? 'block' : 'hidden'}>
+			<div class={$activeCategory === 'alpha' ? 'block' : 'hidden'}>
 				{#each alphaLinks as { text, url }}
 					<a
 						href={url}
-						class="block p-2 hover:bg-custom-gray"
-						on:click={(event) => {
-							setActiveLink(event, url);
-							closeMenu();
-						}}
-						class:font-bold={$activeLink === url}
-						class:bg-custom-gray={$activeLink === url}>{text}</a
+						on:click|preventDefault={(event) => navigate(event, url)}
+						class="block p-2 hover:bg-custom-gray {$activeLink === url
+							? 'font-bold bg-custom-gray'
+							: ''}"
 					>
+						{text}
+					</a>
 				{/each}
 			</div>
 			<button
-				class="text-custom-blue hover:text-white py-2"
+				class="text-custom-blue hover:text-white py-2 {$activeCategory === 'public'
+					? 'font-bold'
+					: ''}"
 				on:click={() => toggleCategory('public')}
 			>
 				Public Mods
 			</button>
-			<div class={activeCategory === 'public' ? 'block' : 'hidden'}>
+			<div class={$activeCategory === 'public' ? 'block' : 'hidden'}>
 				{#each publicLinks as { text, url }}
 					<a
 						href={url}
-						class="block p-2 hover:bg-custom-gray"
-						on:click={(event) => {
-							event.preventDefault();
-							setActiveLink(event, url);
-							closeMenu();
-						}}>{text}</a
+						on:click|preventDefault={(event) => navigate(event, url)}
+						class="block p-2 hover:bg-custom-gray {$activeLink === url
+							? 'font-bold bg-custom-gray'
+							: ''}"
 					>
+						{text}
+					</a>
 				{/each}
 			</div>
 		</div>
 
 		<!-- Content-->
-		<div class="flex-grow overflow-y-auto w-100 overflow-hidden p-6">
+		<div class="flex-grow overflow-y-auto w-full p-6">
 			<div bind:this={contentNode}>
 				<slot />
 			</div>
@@ -211,8 +213,9 @@
 							<a
 								href={`#${id}`}
 								class="flex text-custom-blue hover:text-white hover:bg-custom-gray py-2 px-4"
-								>{text}</a
 							>
+								{text}
+							</a>
 						</li>
 					{/each}
 				</ul>
