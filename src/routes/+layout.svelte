@@ -59,7 +59,7 @@
 		{ text: 'Shape FX', url: '/Public/Shape_FX' },
 		{ text: 'Better Replay Mod', url: '/Public/Better_Replay_Mod' },
 		{ text: 'XL Menu Mod', url: '/Public/XL_Menu_Mod' },
-		{ text: 'Multiplayer+', url: '/Public/Multiplayer+' }
+		{ text: 'Multiplayer++', url: '/Public/Multiplayer++' }
 	];
 
 	onMount(() => {
@@ -106,7 +106,7 @@
 <div class="max-w-custom-8xl">
 	<!-- Header Section -->
 	<header
-		class="w-100 sticky top-0 z-100 p-4 pl-6 backdrop-blur-md flex flex-col md:flex-row text-sm"
+		class="w-100 sticky top-0 z-100 py-4 px-8 backdrop-blur-md flex flex-col md:flex-row text-sm"
 	>
 		<div class="flex justify-between items-center w-full md:w-auto md:mb-0">
 			<a href="/" title="Go to homepage">
@@ -163,7 +163,7 @@
 						href={url}
 						on:click|preventDefault={(event) => navigate(event, url)}
 						class="block p-2 hover:bg-custom-gray {$activeLink === url
-							? 'font-bold bg-custom-gray'
+							? 'font-bold bg-custom-soft-gray hover:bg-custom-soft-gray'
 							: ''}"
 					>
 						{text}
@@ -184,7 +184,7 @@
 						href={url}
 						on:click|preventDefault={(event) => navigate(event, url)}
 						class="block p-2 hover:bg-custom-gray {$activeLink === url
-							? 'font-bold bg-custom-gray'
+							? 'font-bold bg-custom-soft-gray hover:bg-custom-soft-gray'
 							: ''}"
 					>
 						{text}

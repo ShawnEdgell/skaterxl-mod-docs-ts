@@ -1,46 +1,40 @@
-<script lang="ts">
-	// Any script content needed for this page
-</script>
-
 <article>
-	<h1 id="introduction">Stats & Settings</h1>
-	<p>
-		Explore the various features of our application. This section details each feature, how to use
-		it, and how it can help you achieve your goals.
-	</p>
-
-	<h3 id="feature1">Feature 1</h3>
-	<p>Details about Feature 1.</p>
-
-	<h3 id="feature2">Feature 2</h3>
-	<p>Details about Feature 2.</p>
-
-	<h2 id="faq">FAQ</h2>
-	<p>
-		Find answers to frequently asked questions in this section. If you have further questions,
-		please reach out to our support team.
-	</p>
-
-	<h2 id="contact">Contact</h2>
-	<p>
-		For more information, please contact us using the details provided in this section. We look
-		forward to hearing from you!
-	</p>
-	<h3 id="feature1">Feature 1</h3>
-	<p>Details about Feature 1.</p>
-
-	<h3 id="feature2">Feature 2</h3>
-	<p>Details about Feature 2.</p>
-
-	<h2 id="faq">FAQ</h2>
-	<p>
-		Find answers to frequently asked questions in this section. If you have further questions,
-		please reach out to our support team.
-	</p>
-
-	<h2 id="contact">Contact</h2>
-	<p>
-		For more information, please contact us using the details provided in this section. We look
-		forward to hearing from you!
-	</p>
+	<div class="section-container">
+		<h1 id="maps-gear">Maps and Gear for Skater XL</h1>
+		<p>
+			Visit skaterxl.mod.io skaterxl.mod.io for a wide range of public maps and gear uploaded by the
+			community.
+		</p>
+		<p>
+			You can also find many custom maps and gear options on Discord. Check our links down below to
+			join some popular map and gear servers!
+		</p>
+	</div>
+	<div class="section-container">
+		<h2 id="installing-maps">Installing Custom Maps</h2>
+		<p>Download and unzip custom maps, then place them in:</p>
+		<p><code>Documents/SkaterXL/Maps</code></p>
+		<p>
+			<strong>Tip:</strong> Make sure "Allow User Generated Content" is turned ON in the game settings
+			to access custom maps.
+		</p>
+	</div>
+	<div class="section-container">
+		<h2 id="installing-gear">Installing Custom Gear</h2>
+		<p>Download and unzip custom gear, then place them in:</p>
+		<p><code>Documents/SkaterXL/Gear</code></p>
+		<p>
+			<strong>Tip:</strong> Make sure "Allow User Generated Content" is turned ON in the game settings
+			to access custom maps.
+		</p>
+	</div>
+	<div class="section-container">
+		<h2 id="xl-gear-modifier">XL Gear Modifier (XLGM 2)</h2>
+		<p>
+			The XL Gear Modifier offers advanced customization options, including dynamic clothing and
+			unique accessories, enhancing realism in Skater XL. It goes beyond simple texture mods by
+			introducing moving garments and a variety of gear.
+		</p>
+		<p>For detailed information and guides, visit our XL Gear Modifier page.</p>
+	</div>
 </article>

@@ -1,46 +1,8 @@
-<script lang="ts">
-	// Any script content needed for this page
-</script>
-
 <article>
-	<h1 id="introduction">Stats & Settings</h1>
+	<h1>Stats & Settings</h1>
 	<p>
-		Explore the various features of our application. This section details each feature, how to use
-		it, and how it can help you achieve your goals.
-	</p>
-
-	<h3 id="feature1">Feature 1</h3>
-	<p>Details about Feature 1.</p>
-
-	<h3 id="feature2">Feature 2</h3>
-	<p>Details about Feature 2.</p>
-
-	<h2 id="faq">FAQ</h2>
-	<p>
-		Find answers to frequently asked questions in this section. If you have further questions,
-		please reach out to our support team.
-	</p>
-
-	<h2 id="contact">Contact</h2>
-	<p>
-		For more information, please contact us using the details provided in this section. We look
-		forward to hearing from you!
-	</p>
-	<h3 id="feature1">Feature 1</h3>
-	<p>Details about Feature 1.</p>
-
-	<h3 id="feature2">Feature 2</h3>
-	<p>Details about Feature 2.</p>
-
-	<h2 id="faq">FAQ</h2>
-	<p>
-		Find answers to frequently asked questions in this section. If you have further questions,
-		please reach out to our support team.
-	</p>
-
-	<h2 id="contact">Contact</h2>
-	<p>
-		For more information, please contact us using the details provided in this section. We look
-		forward to hearing from you!
+		This page is dedicated to uploading and downloading community-made stat and setting presets for
+		the XXL Mod, BonedOllieMod, and Fro's Mod. Please note that this page is still a work in
+		progress with many more features to come.
 	</p>
 </article>

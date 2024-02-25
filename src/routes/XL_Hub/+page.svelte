@@ -1,46 +1,23 @@
-<script lang="ts">
-	// Any script content needed for this page
-</script>
-
 <article>
-	<h1 id="introduction">XL Hub</h1>
-	<p>
-		Explore the various features of our application. This section details each feature, how to use
-		it, and how it can help you achieve your goals.
-	</p>
-
-	<h3 id="feature1">Feature 1</h3>
-	<p>Details about Feature 1.</p>
-
-	<h3 id="feature2">Feature 2</h3>
-	<p>Details about Feature 2.</p>
-
-	<h2 id="faq">FAQ</h2>
-	<p>
-		Find answers to frequently asked questions in this section. If you have further questions,
-		please reach out to our support team.
-	</p>
-
-	<h2 id="contact">Contact</h2>
-	<p>
-		For more information, please contact us using the details provided in this section. We look
-		forward to hearing from you!
-	</p>
-	<h3 id="feature1">Feature 1</h3>
-	<p>Details about Feature 1.</p>
-
-	<h3 id="feature2">Feature 2</h3>
-	<p>Details about Feature 2.</p>
-
-	<h2 id="faq">FAQ</h2>
-	<p>
-		Find answers to frequently asked questions in this section. If you have further questions,
-		please reach out to our support team.
-	</p>
-
-	<h2 id="contact">Contact</h2>
-	<p>
-		For more information, please contact us using the details provided in this section. We look
-		forward to hearing from you!
-	</p>
+	<div class="section-container">
+		<h1 id="xl-hub">XL Hub</h1>
+		<p>Skater XL Modding Made Easy</p>
+		<p>
+			Introducing XL Hub by Fro, the ultimate tool for browsing, downloading, and managing your
+			Skater XL maps and mods. No UnityModManager required.
+		</p>
+	</div>
+	<div class="section-container">
+		<h2 id="quick-start">Quick Start Guide</h2>
+		<ol>
+			<li>Download and open XL Hub.</li>
+			<li>Log in with your mod.io account to access a vast range of Skater XL mods.</li>
+			<li>XL Hub detects your Skater XL installation via Steam, simplifying setup.</li>
+			<li>Direct map downloads to <code>Documents/SkaterXL/Maps</code> for easy access.</li>
+		</ol>
+		<p>
+			<strong>Note:</strong> Manually set the 'Game Folder' if XL Hub doesn't automatically find
+			your installation. Typical path: <code>Steam/steamapps/common/SkaterXL</code>.
+		</p>
+	</div>
 </article>

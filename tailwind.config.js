@@ -13,6 +13,7 @@ export default {
         'custom-dark-blue': '#151c24',
         'custom-black': '#101010',
         'custom-gray': '#232323',
+        'custom-soft-gray': '#343434',
         'custom-light-gray': '#e3e2e9', 
         'custom-lime-green': '#d6f93d',
         'custom-purple': '#a77ef2',
